@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "hash1.h": "c"
+        "hash1.h": "c",
+        "test.h": "c",
+        "stdio.h": "c",
+        "hash2.h": "c"
     }
 }

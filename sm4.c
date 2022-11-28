@@ -36,7 +36,7 @@ unsigned char SM4_Sbox[256] =
 
 unsigned int SM4_FK[4] = {0xA3B1BAC6, 0x56AA3350, 0x677D9197, 0xB27022DC};
 
-void SM4_KeySchedule(unsigned char MK[], unsigned int rk[])
+void SM4_KeySchedule(const unsigned char MK[], unsigned int rk[])
 {
 	unsigned int tmp, buf, K[36];
 	int i;
@@ -76,7 +76,7 @@ Output:
 	  CipherText[]: output text
 Return:null Others:
 ************************************************************/
-void SM4_Encrypt(unsigned char MK[], unsigned char PlainText[], unsigned char CipherText[])
+void SM4_Encrypt(const unsigned char MK[], const unsigned char PlainText[], unsigned char CipherText[])
 {
 	unsigned int rk[32], X[36], tmp, buf;
 	int i, j;
@@ -123,7 +123,7 @@ Output:
 Return:null
 Others:
 ************************************************************/
-void SM4_Decrypt(unsigned char MK[], unsigned char CipherText[], unsigned char PlainText[])
+void SM4_Decrypt(const unsigned char MK[], const unsigned char CipherText[], unsigned char PlainText[])
 {
 	unsigned int rk[32], X[36], tmp, buf;
 	int i, j;
@@ -155,11 +155,11 @@ void SM4_Decrypt(unsigned char MK[], unsigned char CipherText[], unsigned char P
 	}
 }
 
-void SM4_Enc(unsigned char cipher[16], unsigned char plain[16], unsigned char mk[16])
+void SM4_Enc(unsigned char cipher[16], const unsigned char plain[16], const unsigned char mk[16])
 {
 	return SM4_Encrypt(mk, plain, cipher);
 }
-void SM4_Dec(unsigned char plain[16], unsigned char cipher[16], unsigned char mk[16])
+void SM4_Dec(unsigned char plain[16], const unsigned char cipher[16], const unsigned char mk[16])
 {
 	return SM4_Decrypt(mk, cipher, plain);
 }

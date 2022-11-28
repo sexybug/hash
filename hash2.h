@@ -1,5 +1,5 @@
-#ifndef _HASH1_H
-#define _HASH1_H
+#ifndef _HASH2_H
+#define _HASH2_H
 
 #include <stdint.h>
 
@@ -13,4 +13,4 @@
  */
 void h(const uint8_t *D, int D_len, const uint8_t *IV, uint8_t *H);
 
-#endif // _HASH1_H
+#endif // _HASH2_H
