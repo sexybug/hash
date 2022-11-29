@@ -3,6 +3,7 @@
         "hash1.h": "c",
         "test.h": "c",
         "stdio.h": "c",
-        "hash2.h": "c"
+        "hash2.h": "c",
+        "hash3.h": "c"
     }
 }
