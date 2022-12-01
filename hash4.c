@@ -110,63 +110,63 @@ void f1(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u1(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 void f2(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u2(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 void f3(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u3(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 void f4(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u4(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 void f5(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u5(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 void f6(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u6(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 void f7(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u7(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 void f8(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u8(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 void f9(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u9(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 
@@ -328,7 +328,7 @@ void phi(const uint8_t *Hj_11, const uint8_t *Hj_12, const uint8_t *Hj_13, const
     f6(Xj6, Yj6, Hj6);
     f7(Xj7, Yj7, Hj7);
     f8(Xj8, Yj8, Hj8);
-    f8(Xj9, Yj9, Hj9);
+    f9(Xj9, Yj9, Hj9);
 }
 
 /**

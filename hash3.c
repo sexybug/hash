@@ -102,56 +102,56 @@ void f1(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u1(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 void f2(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u2(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 void f3(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u3(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 void f4(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u4(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 void f5(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u5(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 void f6(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u6(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 void f7(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u7(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 void f8(const uint8_t *X, const uint8_t *Y, uint8_t *H)
 {
     uint8_t K[16];
     u8(X, K);
-    SM4_Enc(H, X, K);
+    SM4_Enc(H, Y, K);
     XOR(H, Y, 16, H);
 }
 
@@ -327,6 +327,7 @@ void T(const uint8_t *Hq1, const uint8_t *Hq2, const uint8_t *Hq3, const uint8_t
     }
     phi(Hq1, Hq2, Hq3, Hq4, Hq5, Hq6, Hq7, Hq8, D1, D2, D3, D4,
         Hj1, Hj2, Hj3, Hj4, Hj5, Hj6, Hj7, Hj8);
+
     //第2轮
     for (int i = 0; i < 16; ++i)
     {
@@ -337,6 +338,7 @@ void T(const uint8_t *Hq1, const uint8_t *Hq2, const uint8_t *Hq3, const uint8_t
     }
     phi(Hj1, Hj2, Hj3, Hj4, Hj5, Hj6, Hj7, Hj8, D1, D2, D3, D4,
         Hj1, Hj2, Hj3, Hj4, Hj5, Hj6, Hj7, Hj8);
+
     //第3轮
     for (int i = 0; i < 16; ++i)
     {
@@ -345,8 +347,9 @@ void T(const uint8_t *Hq1, const uint8_t *Hq2, const uint8_t *Hq3, const uint8_t
         D3[i] = Hq3[i];
         D4[i] = Hq4[i];
     }
-    phi(Hq1, Hq2, Hq3, Hq4, Hq5, Hq6, Hq7, Hq8, D1, D2, D3, D4,
+    phi(Hj1, Hj2, Hj3, Hj4, Hj5, Hj6, Hj7, Hj8, D1, D2, D3, D4,
         Hj1, Hj2, Hj3, Hj4, Hj5, Hj6, Hj7, Hj8);
+
     //第4轮
     for (int i = 0; i < 16; ++i)
     {
@@ -380,7 +383,7 @@ void h(const uint8_t *D, int D_len, const uint8_t *IV, uint8_t *H)
     phi(IV, IV + 16, IV + 16 * 2, IV + 16 * 3, IV + 16 * 4, IV + 16 * 5, IV + 16 * 6, IV + 16 * 7,
         D, D + 16, D + 16 * 2, D + 16 * 3,
         Hj1, Hj2, Hj3, Hj4, Hj5, Hj6, Hj7, Hj8);
-    printf("j=1,Hj:\n");
+    printf("j=1,Hj:\n"); //正确
     memory_dump(Hj1, 16);
     memory_dump(Hj2, 16);
     memory_dump(Hj3, 16);
